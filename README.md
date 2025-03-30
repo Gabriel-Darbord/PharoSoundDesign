@@ -6,7 +6,7 @@ This project is a prototype for exploring sound design in a live programming env
 
 ## Installing
 
-As a standalone:
+As a standalone, execute in a Playground:
 ```st
 Metacello new
   githubUser: 'Gabriel-Darbord' project: 'PharoSoundDesign' commitish: 'main' path: 'src';
@@ -15,20 +15,22 @@ Metacello new
   onConflictUseLoaded;
   load
 ```
-As a dependency:
+As a dependency, add to your baseline:
 ```st
 spec baseline: 'PharoSoundDesign' with: [ spec repository: 'github://Gabriel-Darbord/PharoSoundDesign/src' ]
 ```
-Installing Phausto requires additional steps, see on its [wiki](https://github.com/lucretiomsp/phausto/wiki).
+> [!IMPORTANT]
+> Installing Phausto requires additional steps, see on its [wiki](https://github.com/lucretiomsp/phausto/wiki).
 
 ## Usage
 
 Enable and disable the sonification by sending the `enable` and `disable` messages to the `PSDInstrumentationModule` class.
-When enabled, a specific jingle is played for each of the following events:
-- Passing tests
-- Failing tests
-- Resumable exceptions that open a debugger
-- Non-resumable exceptions that open a debugger
-- Growl notifications (aka toasts, the text messages that appear discreetly and fade away after some time)
+When enabled, a specific cue is played for each of the following events:
+- Tests pass
+- Tests fail
+- A resumable exception opens a debugger, such as a warning
+- A non-resumable exception opens a debugger, such as an error
+- A notification is displayed (a message that appears briefly to provide information, also known as a growl or toast)
 
-All of these events can be easily triggered using the `PSDExample` class.
+> [!TIP]
+> All of these events can be easily triggered using the `PSDExample` class.
