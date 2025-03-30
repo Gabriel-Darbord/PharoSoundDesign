@@ -47,10 +47,10 @@ PSDInstrument class >> playError [
 	Note 2: B4 (494 Hz)  | Tritone tension
 	Note 3: D4 (294 Hz)  | Drop to instability
 
-	This sequence forms the critical error sound, which is designed as an intensified and unresolved variation of the warning jingle.
+	This sequence forms the error cue, which is designed as an intensified and unresolved variation of the warning cue.
 	It begins with F4 and moves to B4, creating a tritone that establishes immediate tension.
 	The descent from B4 to D4, a minor sixth, reinforces a somber tone and suggests failure or collapse.
-	Unlike the warning sound, this jingle lacks a tonal center or resolution, leaving the sequence open-ended and unsettling.
+	Unlike the warning sound, this cue lacks a tonal center or resolution, leaving the sequence open-ended and unsettling.
 	Its severity is high: the goal is to convey that something has broken irreversibly.
 	The emotional tone is serious and unresolved, and the sequence ends abruptly to reflect the system's inability to recover."
 
@@ -101,7 +101,7 @@ PSDInstrument class >> playTestFailed [
 	"Note 1: D5 (587 Hz)
 	Note 2: B4 (494 Hz)
 
-	This sound indicates a failed test with a descending minor third interval from D5 to B4.
+	This cue indicates a failed test with a descending minor third interval from D5 to B4.
 	The drop suggests caution or concern without being overly dramatic or alarming.
 	It is meant to convey that something has gone wrong with the test run, but without the emotional weight of a critical failure.
 	By keeping the frequency range close to the test pass signal, the overall sound palette remains consistent.
