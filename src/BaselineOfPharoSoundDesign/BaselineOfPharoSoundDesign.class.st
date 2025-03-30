@@ -16,7 +16,7 @@ BaselineOfPharoSoundDesign >> baseline: spec [
 				spec repository: 'github://Gabriel-Darbord/MethodProxies/src' ];
 			baseline: 'Musical'
 			with: [
-				spec repository: 'github://Gabriel-Darbord/MusicalInstrument/src' ].
+				spec repository: 'github://Gabriel-Darbord/Musical-Instrument/src' ].
 
 		spec
 			package: 'PharoSoundDesign' with: 'MusicalInstrument';
