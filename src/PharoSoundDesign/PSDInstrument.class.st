@@ -54,15 +54,12 @@ PSDInstrument class >> playError [
 	Note 2: B4 (494 Hz)  | Tritone tension
 	Note 3: D4 (294 Hz)  | Drop to instability
 
-	The error sound is an amplified, unresolved variation of the warning sound.
-	The descent from B4 to D4 is a minor sixth, which adds to the somber tone and gives the impression of something falling or failing.
-	The lack of a tonal center (no perfect fifth or resolution) leaves the sequence open-ended and unresolved.
-	
-	# Semantic Goal
-	Severity: High, something broke
-	Emotion: Serious, unresolved
-	Tension: Needs to feel more dissonant and unsettling
-	Resolution: No resolution, the sound should end abruptly or trail off unnaturally"
+	This sequence forms the critical error sound, which is designed as an intensified and unresolved variation of the warning jingle.
+	It begins with F4 and moves to B4, creating a tritone that establishes immediate tension.
+	The descent from B4 to D4, a minor sixth, reinforces a somber tone and suggests failure or collapse.
+	Unlike the warning sound, this jingle lacks a tonal center or resolution, leaving the sequence open-ended and unsettling.
+	Its severity is high: the goal is to convey that something has broken irreversibly.
+	The emotional tone is serious and unresolved, and the sequence ends abruptly to reflect the system's inability to recover."
 
 	[
 	| sustain delay |
@@ -94,18 +91,11 @@ PSDInstrument class >> playError [
 PSDInstrument class >> playNotify [
 	"Note: E5 (660 Hz)
 
-	A quick middle-high note to inform the user that there is something to acknowledge.
-	For a toast/growl-style notification, the sound should be subtle, brief, and easily distinguishable from error or success signals.
-	Its purpose is not to demand immediate action, but to gently draw the user’s attention to new information.
-	Something akin to a visual badge or tooltip, but in auditory form.
-	As the perfect fifth above A4, E5 has a naturally stable and pleasant character, making it ideal for informative notifications that don’t carry emotional weight.
-
-	# Semantic Goal
-	Purpose: Indicate the presence of a message or event that may be acknowledged but is not urgent.
-	Emotional Tone: Neutral-to-positive.
-	Auditory Characteristics:
-	- Short and non-intrusive.
-	- High enough in pitch to cut through ambient sounds, but not shrill."
+	This cue consists of a single note used to inform the user of a new notification.
+	As the perfect fifth above A4, E5 has a stable and pleasant character, making it ideal for non-intrusive cues.
+	The cue is short and bright enough to cut through ambient noise without becoming shrill or demanding.
+	The goal is to gently draw the user's attention to something that may be acknowledged but is not urgent,
+	serving the same purpose as a visual badge or tooltip in auditory form."
 
 	[
 	Dsp setValue: 660 parameterIndex: freq.
@@ -118,9 +108,12 @@ PSDInstrument class >> playNotify [
 PSDInstrument class >> playTestFailed [
 	"Note 1: D5 (587 Hz)
 	Note 2: B4 (494 Hz)
-	This descending pair creates a minor third drop, which can evoke a subtle sense of dissonance or caution.
-	The interval isn’t overly dramatic but is distinct enough to communicate that something has gone awry.
-	By keeping the frequency range near that of the passing signal, the overall sound remains consistent, and the change in direction (ascending versus descending) is what primarily cues the user."
+
+	This sound indicates a failed test with a descending minor third interval from D5 to B4.
+	The drop suggests caution or concern without being overly dramatic or alarming.
+	It is meant to convey that something has gone wrong with the test run, but without the emotional weight of a critical failure.
+	By keeping the frequency range close to the test pass signal, the overall sound palette remains consistent.
+	The primary distinguishing feature is the downward motion, which conveys failure through subtle dissonance."
 
 	[
 	| sustain delay |
@@ -146,9 +139,11 @@ PSDInstrument class >> playTestPassed [
 	"Note 1: A4 (440 Hz)
 	Note 2: C#5 (554 Hz)
 	Note 3: E5 (659 Hz)
-	This sequence produces an arpeggiated A major chord.
-	The intervals (a major third and a perfect fifth from the base note) provide a gentle uplift without sounding overly exuberant.
-	Alternatively, you could choose a similar pattern in a different key if you prefer a slightly different character; the important part is the upward motion that suggests progression or success."
+
+	This ascending sequence forms an A major triad, played as an arpeggio.
+	The major third and perfect fifth intervals create a sense of forward motion and positivity without sounding exuberant.
+	It is intended to communicate that tests have passed successfully, using an upward gesture to suggest progression and resolution.
+	Although alternatives in other keys are possible, the emphasis is on the directional character of the phrase: a gentle, encouraging cue that remains restrained."
 
 	[
 	| sustain delay |
@@ -180,14 +175,12 @@ PSDInstrument class >> playTestPassed [
 PSDInstrument class >> playWarning [
 	"Note 1: F4 (349 Hz)
 	Note 2: B4 (494 Hz)
-	For a resumable exception, we aim to signal a warning: something undesirable has happened, but the user can likely recover from it.
-	The tritone spans six semitones and sounds unresolved—perfect for a situation where something went wrong, but not fatally so.
-	
-	# Semantic Goal
-	Severity: Moderate, needs attention but not panic
-	Emotion: Concern, not catastrophe
-	Actionability: The user can resume, so signal that recovery is possible
-	Sound quality: Noticeable, slightly tense, not aggressive"
+
+	This cue signals a warning, such as when the debugger opens due to a resumable exception.
+	It uses the interval of a tritone — six semitones apart — which creates tension and ambiguity.
+	The emotional intent is to alert the user that something undesirable has occurred, but recovery is possible.
+	The cue is designed to be noticeable and slightly tense, but not aggressive or alarming.
+	It reflects moderate severity, emphasizing concern without implying irreversibility."
 
 	[ "F4"
 	Dsp setValue: 349.0 parameterIndex: freq.
