@@ -13,12 +13,8 @@ PSDOupsDebugRequestInstrumentation class >> beforeExecutionWithReceiver: receive
 	(self silent or: [ receiver exception class == OupsNullException ])
 		ifTrue: [ ^ self ].
 	receiver exception isResumable
-		ifTrue: [
-			'DebugResumable' traceCr.
-			PSDInstrument playWarning ]
-		ifFalse: [
-			'DebugError' traceCr.
-			PSDInstrument playError ]
+		ifTrue: [ PSDInstrument playWarning ]
+		ifFalse: [ PSDInstrument playError ]
 ]
 
 { #category : 'matching' }

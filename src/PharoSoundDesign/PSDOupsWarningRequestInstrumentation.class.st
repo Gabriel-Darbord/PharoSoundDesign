@@ -10,8 +10,7 @@ Class {
 PSDOupsWarningRequestInstrumentation class >> beforeExecutionWithReceiver: receiver arguments: arguments [
 	"On natural exceptions, not when debugging using OupsNullException."
 
-	(self silent or: [ receiver exception class == OupsNullException ])
-		ifFalse: [ PSDInstrument playWarning ]
+	self silent ifFalse: [ PSDInstrument playWarning ]
 ]
 
 { #category : 'matching' }
