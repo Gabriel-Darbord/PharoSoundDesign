@@ -37,7 +37,7 @@ PSDExample >> triggerError [
 { #category : 'examples' }
 PSDExample >> triggerNotification [
 
-	<script: 'self inform: ''Something of note happened.'''>
+	<script: 'self inform: ''Something happened.'''>
 ]
 
 { #category : 'examples' }

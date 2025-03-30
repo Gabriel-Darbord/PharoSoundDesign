@@ -25,13 +25,6 @@ PSDInstrument class >> configure [
 
 { #category : 'instance creation' }
 PSDInstrument class >> instrument [
-	"| lfo synth |
-	lfo := LFOSawPos new
-		       offset: 200;
-		       amount: 700;
-		       freq: 8.
-	synth := (SineOsc new freq: lfo) => (ADSREnv new trigger: #gate).
-	^ synth"
 
 	^ Chordy new
 ]
@@ -67,24 +60,26 @@ PSDInstrument class >> playError [
 	delay := Delay forMilliseconds: 10.
 
 	"F4"
-	Dsp setValue: 349.0 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	sustain wait.
-	Dsp setValue: 0 parameterIndex: gate.
+	self playFrequency: 349.0 for: sustain.
 	delay wait.
 
 	"B4"
-	Dsp setValue: 494.0 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	sustain wait.
-	Dsp setValue: 0 parameterIndex: gate.
+	self playFrequency: 494.0 for: sustain.
 	delay wait.
 
 	"D4"
-	Dsp setValue: 294.0 parameterIndex: freq.
+	self playFrequency: 294.0 for: (Delay forMilliseconds: 200) ]
+		forkAt: 70
+]
+
+{ #category : 'playing' }
+PSDInstrument class >> playFrequency: frequency for: duration [
+	"Synchronously trigger this instrument at a given frequency and for a given duration."
+
+	Dsp setValue: frequency parameterIndex: freq.
 	Dsp setValue: 1 parameterIndex: gate.
-	(Delay forMilliseconds: 200) wait.
-	Dsp setValue: 0 parameterIndex: gate ] forkAt: 70
+	duration wait.
+	Dsp setValue: 0 parameterIndex: gate
 ]
 
 { #category : 'playing' }
@@ -97,11 +92,8 @@ PSDInstrument class >> playNotify [
 	The goal is to gently draw the user's attention to something that may be acknowledged but is not urgent,
 	serving the same purpose as a visual badge or tooltip in auditory form."
 
-	[
-	Dsp setValue: 660 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	(Delay forMilliseconds: 10) wait.
-	Dsp setValue: 0 parameterIndex: gate ] forkAt: 70
+	[ "E5" self playFrequency: 660.0 for: (Delay forMilliseconds: 10) ]
+		forkAt: 70
 ]
 
 { #category : 'playing' }
@@ -121,17 +113,11 @@ PSDInstrument class >> playTestFailed [
 	delay := Delay forMilliseconds: 10.
 
 	"D5"
-	Dsp setValue: 587.0 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	sustain wait.
-	Dsp setValue: 0 parameterIndex: gate.
+	self playFrequency: 587.0 for: sustain.
 	delay wait.
 
 	"B4"
-	Dsp setValue: 494.0 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	sustain wait.
-	Dsp setValue: 0 parameterIndex: gate ] forkAt: 70
+	self playFrequency: 494.0 for: sustain ] forkAt: 70
 ]
 
 { #category : 'playing' }
@@ -151,24 +137,15 @@ PSDInstrument class >> playTestPassed [
 	delay := Delay forMilliseconds: 10.
 
 	"A4"
-	Dsp setValue: 440.0 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	sustain wait.
-	Dsp setValue: 0 parameterIndex: gate.
+	self playFrequency: 440.0 for: sustain.
 	delay wait.
 
 	"C#5"
-	Dsp setValue: 554.0 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	sustain wait.
-	Dsp setValue: 0 parameterIndex: gate.
+	self playFrequency: 554.0 for: sustain.
 	delay wait.
 
 	"E5"
-	Dsp setValue: 659.0 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	sustain wait.
-	Dsp setValue: 0 parameterIndex: gate ] forkAt: 70
+	self playFrequency: 659.0 for: sustain ] forkAt: 70
 ]
 
 { #category : 'playing' }
@@ -182,16 +159,15 @@ PSDInstrument class >> playWarning [
 	The cue is designed to be noticeable and slightly tense, but not aggressive or alarming.
 	It reflects moderate severity, emphasizing concern without implying irreversibility."
 
-	[ "F4"
-	Dsp setValue: 349.0 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	(Delay forMilliseconds: 100) wait.
-	Dsp setValue: 0 parameterIndex: gate.
-	(Delay forMilliseconds: 10) wait.
+	[
+	| delay |
+	delay := Delay forMilliseconds: 10.
+
+	"F4"
+	self playFrequency: 349.0 for: (Delay forMilliseconds: 100).
+	delay wait.
 
 	"B4"
-	Dsp setValue: 494.0 parameterIndex: freq.
-	Dsp setValue: 1 parameterIndex: gate.
-	(Delay forMilliseconds: 200) wait.
-	Dsp setValue: 0 parameterIndex: gate ] forkAt: 70
+	self playFrequency: 494.0 for: (Delay forMilliseconds: 200) ]
+		forkAt: 70
 ]
