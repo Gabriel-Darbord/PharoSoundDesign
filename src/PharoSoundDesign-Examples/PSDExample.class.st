@@ -19,6 +19,12 @@ Class {
 }
 
 { #category : 'examples' }
+PSDExample >> testError [
+
+	self error
+]
+
+{ #category : 'examples' }
 PSDExample >> testFailing [
 
 	self fail
@@ -26,6 +32,12 @@ PSDExample >> testFailing [
 
 { #category : 'examples' }
 PSDExample >> testPassing [
+]
+
+{ #category : 'examples' }
+PSDExample >> testSkip [
+
+	self skip
 ]
 
 { #category : 'examples' }
