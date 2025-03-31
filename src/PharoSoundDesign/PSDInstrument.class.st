@@ -92,7 +92,7 @@ PSDInstrument class >> playNotify [
 	The goal is to gently draw the user's attention to something that may be acknowledged but is not urgent,
 	serving the same purpose as a visual badge or tooltip in auditory form."
 
-	[ "E5" self playFrequency: 660.0 for: (Delay forMilliseconds: 10) ]
+	[ "E5" self playFrequency: 660.0 for: (Delay forMilliseconds: 20) ]
 		forkAt: 70
 ]
 
