@@ -13,12 +13,12 @@ BaselineOfPharoSoundDesign >> baseline: spec [
 		spec
 			baseline: 'MethodProxies' with: [
 				spec repository:
-						'github://Gabriel-Darbord/MethodProxies:master/src' ];
+						'github://Gabriel-Darbord/MethodProxies:Pharo12/src' ];
 			baseline: 'Musical' with: [
 				spec repository:
 						'github://Gabriel-Darbord/Musical-Instrument:main/src' ].
 
 		spec
-			package: 'PharoSoundDesign' with: 'MusicalInstrument';
+			package: 'PharoSoundDesign' with: 'Musical';
 			package: 'PharoSoundDesign-Examples' with: 'PharoSoundDesign' ]
 ]
