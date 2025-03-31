@@ -6,6 +6,8 @@ This project is a prototype for exploring sound design in a live programming env
 
 ## Installing
 
+If this is your first time using Pharo, you can install the [Pharo Launcher](https://pharo.org/download) and [follow the instructions](https://pharo-project.github.io/pharo-launcher/create-images/) to create a Pharo 12 image.
+
 As a standalone, execute in a Playground:
 ```st
 Metacello new
