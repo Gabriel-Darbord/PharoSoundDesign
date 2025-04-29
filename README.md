@@ -14,7 +14,6 @@ Metacello new
   githubUser: 'Gabriel-Darbord' project: 'PharoSoundDesign' commitish: 'main' path: 'src';
   baseline: 'PharoSoundDesign';
   onWarning: #resume;
-  onConflictUseLoaded;
   load
 ```
 As a dependency, add to your baseline:
@@ -22,7 +21,7 @@ As a dependency, add to your baseline:
 spec baseline: 'PharoSoundDesign' with: [ spec repository: 'github://Gabriel-Darbord/PharoSoundDesign/src' ]
 ```
 > [!IMPORTANT]
-> Installing Phausto requires additional steps, see on its [wiki](https://github.com/lucretiomsp/phausto/wiki).
+> Installing Phausto *may* require additional steps. If the installation fails, see on its [wiki](https://github.com/lucretiomsp/phausto/wiki).
 
 ## Usage
 
@@ -36,3 +35,9 @@ When enabled, a specific cue is played for each of the following events:
 
 > [!TIP]
 > All of these events can be easily triggered using the `PSDExample` class.
+
+```st
+PSDInstrumentationModule enable.  "install the instrumentation"
+PSDExample browse.                "use the buttons next to the methods to trigger events"
+PSDInstrumentationModule disable. "uninstall the instrumentation"
+```
